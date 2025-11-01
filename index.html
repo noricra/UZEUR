@@ -59,6 +59,22 @@
             --shadow-xl: 0 20px 25px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.02);
             --shadow-purple: 0 10px 40px rgba(139, 92, 246, 0.12);
             --shadow-glow: 0 0 60px rgba(167, 139, 250, 0.15);
+
+            /* Widget Solana - Variables responsives (base: mobile/default) */
+            --sol-widget-min-width: 300px;
+            --sol-widget-max-width: 400px;
+            --sol-widget-padding: 12px 32px;
+            --sol-widget-top: 75px;
+            --sol-content-gap: 24px;
+            --sol-logo-size: 1.8rem;
+            --sol-symbol-size: 0.75rem;
+            --sol-price-size: 1.5rem;
+            --sol-change-size: 1rem;
+            --sol-change-padding: 4px 10px;
+            --sol-stats-gap: 20px;
+            --sol-stats-padding-left: 20px;
+            --sol-stat-label-size: 0.7rem;
+            --sol-stat-value-size: 0.95rem;
         }
 
         body {
@@ -93,7 +109,7 @@
         }
 
         h1 {
-            font-size: clamp(2.75rem, 6vw, 4.25rem);
+            font-size: clamp(2.75rem, 6vw, 3.75rem);
             margin-bottom: 2rem;
             line-height: 1.15;
         }
@@ -106,7 +122,7 @@
 
         h3 {
             font-size: clamp(1.35rem, 3vw, 1.85rem);
-            margin-bottom: 0.875rem;
+           
             font-weight: 800;  /* Légèrement moins bold pour finesse */
         }
 
@@ -156,7 +172,7 @@
         header nav {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 2.7rem;
             flex: 1;
         }
 
@@ -179,7 +195,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             list-style: none;
             align-items: center;
             margin: 0;
@@ -285,6 +301,7 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(100, 116, 139, 0.1);
     flex-shrink: 0;
+    margin-left: 3px;
 }
 
 .language-switcher button {
@@ -314,31 +331,31 @@
         /* Widget Solana Fixe - Design Épuré */
         .solana-widget {
             position: fixed;
-            top: 70px;
+            top: var(--sol-widget-top);
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.98) 0%, rgba(124, 58, 237, 0.98) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 0 0 16px 16px;
-            padding: 12px 32px;
+            padding: var(--sol-widget-padding);
             z-index: 1001;
             box-shadow: 0 4px 24px rgba(139, 92, 246, 0.25);
             border: 1.5px solid rgba(255, 255, 255, 0.2);
             border-top: none;
-            min-width: 300px;
-            max-width: 400px;
+            min-width: var(--sol-widget-min-width);
+            max-width: var(--sol-widget-max-width);
         }
 
         .solana-widget-content {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: var(--sol-content-gap);
             color: #ffffff;
         }
 
         .sol-logo {
-            font-size: 1.8rem;
+            font-size: var(--sol-logo-size);
             line-height: 1;
         }
 
@@ -349,7 +366,7 @@
         }
 
         .sol-symbol {
-            font-size: 0.75rem;
+            font-size: var(--sol-symbol-size);
             font-weight: 600;
             letter-spacing: 0.05em;
             opacity: 0.85;
@@ -357,7 +374,7 @@
         }
 
         .sol-price {
-            font-size: 1.5rem;
+            font-size: var(--sol-price-size);
             font-weight: 900;
             letter-spacing: -0.02em;
             line-height: 1;
@@ -365,8 +382,8 @@
 
         .sol-stats {
             display: flex;
-            gap: 20px;
-            padding-left: 20px;
+            gap: var(--sol-stats-gap);
+            padding-left: var(--sol-stats-padding-left);
             border-left: 1.5px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -377,21 +394,21 @@
         }
 
         .sol-stat-label {
-            font-size: 0.7rem;
+            font-size: var(--sol-stat-label-size);
             opacity: 0.75;
             font-weight: 500;
             letter-spacing: 0.03em;
         }
 
         .sol-stat-value {
-            font-size: 0.95rem;
+            font-size: var(--sol-stat-value-size);
             font-weight: 700;
         }
 
         .sol-change {
-            font-size: 1rem;
+            font-size: var(--sol-change-size);
             font-weight: 800;
-            padding: 4px 10px;
+            padding: var(--sol-change-padding);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -425,73 +442,34 @@
 
         /* Desktop - Widget Solana AGRANDI */
         @media (min-width: 1025px) {
-            .solana-widget {
-                min-width: 700px;
-                max-width: 850px;
-                padding: 14px 36px;
-            }
-
-            .solana-widget-content {
-                gap: 28px;
-            }
-
-            .sol-logo {
-                font-size: 2rem;
-            }
-
-            .sol-symbol {
-                font-size: 0.8rem;
-            }
-
-            .sol-price {
-                font-size: 1.65rem;
-            }
-
-            .sol-change {
-                font-size: 1.1rem;
-                padding: 5px 12px;
-            }
-
-            .sol-stats {
-                gap: 24px;
-                padding-left: 24px;
-            }
-
-            .sol-stat-label {
-                font-size: 0.75rem;
-            }
-
-            .sol-stat-value {
-                font-size: 1.05rem;
+            :root {
+                --sol-widget-min-width: 700px;
+                --sol-widget-max-width: 850px;
+                --sol-widget-padding: 14px 36px;
+                --sol-content-gap: 28px;
+                --sol-logo-size: 2rem;
+                --sol-symbol-size: 0.8rem;
+                --sol-price-size: 1.65rem;
+                --sol-change-size: 1.1rem;
+                --sol-change-padding: 5px 12px;
+                --sol-stats-gap: 24px;
+                --sol-stats-padding-left: 24px;
+                --sol-stat-label-size: 0.75rem;
+                --sol-stat-value-size: 1.05rem;
             }
         }
 
         /* Tablette - Widget Solana légèrement réduit */
         @media (min-width: 769px) and (max-width: 1024px) {
-            .solana-widget {
-                min-width: 280px;
-                max-width: 360px;
-                padding: 10px 24px;
-            }
-
-            .sol-logo {
-                font-size: 1.5rem;
-            }
-
-            .sol-price {
-                font-size: 1.3rem;
-            }
-
-            .sol-change {
-                font-size: 0.9rem;
-            }
-
-            .sol-stat-label {
-                font-size: 0.65rem;
-            }
-
-            .sol-stat-value {
-                font-size: 0.85rem;
+            :root {
+                --sol-widget-min-width: 280px;
+                --sol-widget-max-width: 360px;
+                --sol-widget-padding: 10px 24px;
+                --sol-logo-size: 1.5rem;
+                --sol-price-size: 1.3rem;
+                --sol-change-size: 0.9rem;
+                --sol-stat-label-size: 0.65rem;
+                --sol-stat-value-size: 0.85rem;
             }
         }
 
@@ -626,7 +604,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--text-gray);
             margin-bottom: 3rem;
             animation: fadeInUp 0.8s ease 0.2s both;
@@ -1025,7 +1003,7 @@
         }
 
         .section-header p {
-            font-size: 1.15rem;
+            font-size: 1.15rem !important;
             color: var(--text-gray);
             max-width: 700px;
             margin: 0 auto;
@@ -1202,7 +1180,7 @@
         }
 
         /* Désactiver backdrop-filter sur mobile (PERFORMANCE) */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .core-card, .feature-card {
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
@@ -1347,7 +1325,7 @@
         }
 
         .visual-text p {
-            font-size: 1.2rem;
+            font-size: 1.2rem !important;
             margin-bottom: 2rem;
         }
 
@@ -1505,7 +1483,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Pricing Section */
+        /* Pricing Section 
         .pricing {
             background:
                 radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
@@ -1546,7 +1524,7 @@
             border-radius: 50%;
             animation: float-blob 8s ease-in-out infinite;
             pointer-events: none;
-        }
+        }*/
 
         @keyframes slide-pattern {
             0% { transform: translate(0, 0); }
@@ -1591,7 +1569,7 @@
 
         .price-header {
             text-align: center;
-            margin-bottom: 3rem;
+           
             position: relative;
             z-index: 1;
         }
@@ -1834,7 +1812,7 @@
             display: none;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 460px) and (orientation: portrait) {
             .mobile-menu-btn {
                 display: flex !important;
                 margin-left: 47px;
@@ -1842,13 +1820,17 @@
                 margin-right: 90px;  /* Space for language switcher */
                 width: 45px !important;
                 height: 45px !important;
-                font-size: 1.8rem !important;
+                font-size: 2rem !important;
                 background: rgba(233, 213, 255, 0.3) !important;
                 border: 1px solid rgba(192, 132, 252, 0.2) !important;
                 border-radius: 8px !important;
                 align-items: center !important;
                 justify-content: center !important;
                 cursor: pointer !important;
+            }
+
+            .solana-widget{
+                top: 70px !important;
             }
 
             .header-inner {
@@ -1900,6 +1882,7 @@
 
             .hero {
                 align-items: flex-start;
+                
                 padding-top: 7rem !important;  /* Increased for ticker + header */
                 padding-bottom: 3rem;
                 justify-content: center;
@@ -1912,7 +1895,7 @@
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 80px;
+                top: 100px;
                 left: 0;
                 right: 0;
                 background: rgba(255, 255, 255, 0.98);
@@ -1930,22 +1913,22 @@
 
             h1 {
                 font-size: 2rem !important;
-                line-height: 1.6;
+                line-height: 1.6 !important;
                 margin-bottom: 2rem;
             }
 
-            .hero h1 {
+            /*.hero h1 {
                 font-size: 2rem !important;
-                line-height: 1.6;
+                line-height: 1.6 ;
                 margin-bottom: 2rem;
-            }
+            }*/
 
             .hero-cta {
                 margin-top: 3rem;
             }
 
             p {
-                margin-bottom: 1.5rem;
+                margin-bottom: 0rem;
             }
 
             .hero-subtitle {
@@ -1969,12 +1952,21 @@
             }
 
             .hero-subtitle {
-                font-size: 1.05rem !important;
+                font-size: 1.1rem !important;
+            }
+
+            .visual-text p {
+                font-size: 1rem !important;
+           
+            }
+
+            .section-header p{
+                font-size: 1rem !important;
             }
 
             .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
+                padding: 8px 16px;
+                font-size: 0.8rem;
             }
 
 
@@ -2151,7 +2143,7 @@
             }
 
             .price-tag {
-                margin: 1.5rem 0;
+                margin: 0rem 0;
             }
 
             .partner-hero {
@@ -2169,10 +2161,6 @@
 
             .section-header h2 {
                 font-size: 1.5rem;
-            }
-
-            .section-header p {
-                font-size: 0.9rem;
             }
 
             .container {
@@ -2199,11 +2187,11 @@
                 padding-right: 15px;
                 margin-top: -60px;  /* Remonter le contenu mobile uniquement */
                 
-                min-height: 100dvh;
+                min-height: 90dvh;
             }
 
             .hero {
-                min-height: auto;
+                height: 100dvh !important;
                 padding-bottom: 2rem;
             }
 
@@ -2215,14 +2203,52 @@
                 margin-bottom: 2rem !important;  /* Réduire espace après subtitle */
             }
 
-    
+              .visual-text p {
+            font-size: 0.9rem;
+            }
+
+            .section-header p {
+            font-size: 0.9rem;
+            }
+
+    @media (max-width: 385px){
+        .hero-content{
+            min-height: 95dvh;
+         
+        }
+
+        .hero h1{
+            font-size: 1.8rem !important;
+        }
+
+        .hero-subtitle{
+            font-size: 0.9rem !important;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+    }
+
+        .visual-text p{
+            font-size: 0.9rem;
+        }
+
+        .cta-section p{
+            font-size: 0.9rem;
+        }
+
+        .section-header p {
+            font-size: 0.9rem;
+}
+    }
 
     @media (min-width: 769px) and (orientation: portrait) {
                 /* PROBLÈME : Contenu trop haut - CORRECTION RENFORCÉE */
                 .hero {
                     
-                    min-height: 100dvh;
-                    padding-top: 18rem !important; /* ENCORE PLUS D'ESPACE */
+                    max-height: 100dvh;
+                    padding-top: 20rem !important; /* ENCORE PLUS D'ESPACE */
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -2231,7 +2257,7 @@
                 /* PROBLÈME : Scale problématique - SUPPRIMER DÉFINITIVEMENT */
                 .hero-content {
                     transform: none !important;
-                    padding-top: 0 !important;
+                    padding-top: 50 !important;
                     max-width: 800px;
                     margin: 0 auto;
                     text-align: center;
@@ -2258,7 +2284,7 @@
                 .solana-widget {
                     min-width: 550px;
                     max-width: 650px;
-                    top: 100px !important;
+                    top: 75px !important;
                     padding: 14px 36px;
                 }
                 
@@ -2301,16 +2327,14 @@
                 }
 
                 .logo{
-                    font-size: 1.4rem;
+                    font-size: 1.6rem;
                 }
 
-                .visual-section{
-                    min-height: 100dvh;
-                }
+            
 
 
                 .nav-links a{
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                     margin-top: 10px;
                     margin-bottom: 10px;
                 }
@@ -2354,16 +2378,16 @@
             
 
 
-            @media (max-width: 768px) and (orientation: landscape) {
+            @media (max-width: 768px)  {
                 /* PROBLÈME : Hauteur insuffisante */
                 .hero {
-                    min-height: 120dvh;
+                    /*min-height: 120dvh;*/
                     padding-top: 8rem;
                 }
                 
                 /* PROBLÈME : Titre trop gros */
                 .hero h1 {
-                    font-size: 1.8rem !important;
+                    
                     margin-bottom: 1rem;
                     line-height: 1.3;
                 }
@@ -2422,7 +2446,7 @@
 
             .hero-content {
                 max-width: 1000px;
-                padding-top: 25dvh;
+                /*padding-top: 25dvh;*/
             }
         }
 
@@ -2511,6 +2535,251 @@
             display: block;
             border-radius: 24px;  /* Arrondir les coins pour correspondre au parent */
 }
+
+
+    @media (min-width: 1125px) and (orientation: landscape) {
+    .nav-links {
+        margin-left: auto;
+        gap: 3rem;
+    }
+
+    .hero-content{
+        margin-top: 10dvh;
+    }
+
+
+    }
+
+    /* FIX: Nesthub et formats similaires (912x799, 1024x600) - Widget trop court */
+    @media (min-width: 900px) and (max-width: 1024px) and (max-height: 799px) and (orientation: landscape) {
+        .solana-widget {
+            min-width: 600px !important;
+            max-width: 700px !important;
+            padding: 12px 32px !important;
+        }
+
+        .solana-widget-content {
+            gap: 22px !important;
+        }
+
+        .sol-price {
+            font-size: 1.5rem !important;
+        }
+
+        /* Descendre hero content */
+        .hero-content {
+            margin-top: 8dvh !important;
+            padding-top: 100px !important;
+        }
+    }
+
+    /* FIX COMPLET: iPad mini portrait (768x1024) - Tout refait proprement */
+    @media (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
+
+        /* ==== HEADER - Fix superposition ==== */
+        header {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            z-index: 1000 !important;
+            position: fixed !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        }
+
+        .header-inner {
+            padding: 0.6rem 2rem !important;
+            max-width: 100% !important;
+        }
+
+        .logo {
+            font-size: 1.4rem !important;
+        }
+
+        .nav-links {
+            gap: 0.8rem !important;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem !important;
+        }
+
+        /* Fix bouton "Ouvrir le bot" sur 1 ligne - FORCE */
+        .btn-secondary {
+            font-size: 0.7rem !important;
+            padding: 0.5rem 2.2rem !important;
+            white-space: nowrap !important;
+            min-width: auto !important;
+            line-height: 1.1 !important;
+            letter-spacing: -0.02em !important;
+        }
+
+        /* ==== WIDGET SOLANA - Adaptation automatique selon hauteur ==== */
+        .solana-widget {
+            position: fixed !important;
+            top: calc(6vh + 30px) !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            min-width: 500px !important;
+            max-width: 600px !important;
+            width: auto !important;
+            padding: 10px 20px !important;
+            z-index: 999 !important;
+        }
+
+        .solana-widget-content {
+            gap: 12px !important;
+        }
+
+        .sol-logo {
+            font-size: 1.3rem !important;
+        }
+
+        .sol-main {
+            gap: 2px !important;
+        }
+
+        .sol-symbol {
+            font-size: 0.7rem !important;
+        }
+
+        .sol-price {
+            font-size: 1rem !important;
+        }
+
+        .sol-change {
+            font-size: 0.7rem !important;
+            padding: 2px 6px !important;
+        }
+
+        .sol-stats {
+            gap: 25px !important;
+            padding-left: 25px !important;
+        }
+
+        .sol-stat-label {
+            font-size: 0.55rem !important;
+        }
+
+        .sol-stat-value {
+            font-size: 0.75rem !important;
+        }
+
+        /* ==== HERO CONTENT - Proportions correctes ==== */
+        .hero {
+            min-height: 100vh !important;
+            padding-top: 180px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .hero-content {
+            padding-top: 60px !important;
+            max-width: 90% !important;
+            margin: 0 auto !important;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 2.5rem !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .hero-cta {
+            gap: 2.9rem !important;
+            justify-content: center !important;
+        }
+
+        .hero-content{
+            text-align: center;
+        }
+
+        .hero-cta .btn {
+            padding: 16px 40px !important;
+            font-size: 1.05rem !important;
+        }
+
+        /* ==== FEATURES - Carousel comme mobile ==== */
+
+        /* Activer le carousel wrapper */
+        .features-grid {
+            display: block !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+            padding: 0 2rem !important;
+        }
+
+        .features-grid::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        /* Force carousel container */
+        .features-grid.carousel-wrapper .carousel-container {
+            display: flex !important;
+            gap: 1.5rem !important;
+            transform: none !important;
+        }
+
+        /* Feature cards dans le carousel */
+        .feature-card {
+            flex: 0 0 auto !important;
+            width: 340px !important;
+            min-width: 340px !important;
+            max-width: 340px !important;
+            scroll-snap-align: center !important;
+            transform: none !important;
+            margin: 0 !important;
+        }
+
+        .feature-icon {
+            width: 65px !important;
+            height: 65px !important;
+            font-size: 2rem !important;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem !important;
+            margin: 1.5rem 0 1rem !important;
+        }
+
+        .feature-card p {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Navigation dots pour carousel */
+        .carousel-dots {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+            margin-top: 2rem !important;
+        }
+
+        .carousel-dot {
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50% !important;
+            background: var(--text-muted) !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .carousel-dot.active {
+            background: var(--cyan-vivid) !important;
+            width: 30px !important;
+            border-radius: 5px !important;
+        }
+    }
 
         @keyframes loading {
             0%, 80%, 100% {
@@ -2625,35 +2894,6 @@
         </div>
     </section>
 
-    <!-- Core Functionality 
-    <section class="core-section fade-in" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="core-title">Comment ça marche</h2>
-                <p data-translate="core-subtitle">Créez votre boutique et commencez à vendre en quelques minutes</p>
-            </div>
-            <div class="core-grid">
-                <div class="core-card">
-                    <h3 data-translate="core-card1-title">Créez votre boutique</h3>
-                    <p data-translate="core-card1-text">Uploadez vos fichiers (PDF, ZIP, MP4). Définissez prix et descriptions. Votre catalogue est en ligne en 5 minutes.</p>
-                </div>
-                <div class="core-card">
-                    <h3 data-translate="core-card2-title">Recevez vos paiements</h3>
-                    <p data-translate="core-card2-text">Les acheteurs paient en crypto (BTC, ETH, USDT, USDC, LTC, XRP, SOL, BNB). Vous recevez 100% directement sur votre wallet Solana.</p>
-                </div>
-                <div class="core-card">
-                    <h3 data-translate="core-card3-title">Livraison automatique</h3>
-                    <p data-translate="core-card3-text">Pas de gestion manuelle. Le bot envoie les fichiers automatiquement après chaque achat confirmé.</p>
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn" onclick="scrollCarousel('core-carousel', -1)">‹</button>
-                <button class="carousel-btn" onclick="scrollCarousel('core-carousel', 1)">›</button>
-            </div>
-            <div class="carousel-dots" id="core-dots"></div>
-        </div>
-    </section>-->
-
     <!-- Visual Section -->
     <section class="visual-section fade-in" id="core">
         <div class="container">
@@ -2764,7 +3004,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section
     <section class="cta-section fade-in">
         <div class="container">
             <div class="cta-content">
@@ -2773,7 +3013,7 @@
                 <a href="https://t.me/uzeur_bot" class="btn btn-primary btn-large glow" data-translate="cta-main">Ouvrir le bot</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -2819,7 +3059,7 @@ const translations = {
         "nav-features": "Fonctionnalités",
         "nav-sellers": "Vendre",
         "nav-pricing": "Tarifs",
-        "nav-bot": "Ouvrir le bot",
+        "nav-bot": "Ouvrir",
         "hero-title": "Vendez vos formations,<br>PDF, vidéos, ebooks",
         "hero-subtitle": "Marketplace Telegram pour créateurs. Recevez 100% du prix en crypto. Aucune commission, aucun KYC.",
         "hero-cta-start": "Créer ma boutique",
@@ -2885,7 +3125,7 @@ const translations = {
         "pricing-sell4": "Paiements directs en crypto",
         "pricing-buy-cta": "Explorer le catalogue",
         "pricing-sell-cta": "Créer ma boutique",
-        "pricing-footer": "BTC · ETH · USDT · USDC · LTC · XRP · SOL · BNB",
+        "pricing-footer": "BTC · ETH · USDT · USDC · SOL · BNB",
         "cta-title": "Prêt à démarrer ?",
         "cta-subtitle": "Créez votre boutique gratuite en quelques minutes",
         "cta-main": "Ouvrir le bot",
@@ -2963,7 +3203,7 @@ const translations = {
         "pricing-sell4": "Direct crypto payments",
         "pricing-buy-cta": "Explore catalog",
         "pricing-sell-cta": "Create my shop",
-        "pricing-footer": "BTC · ETH · USDT · USDC · LTC · XRP · SOL · BNB",
+        "pricing-footer": "BTC · ETH · USDT · USDC · SOL · BNB",
         "cta-title": "Ready to start?",
         "cta-subtitle": "Create your free shop in minutes",
         "cta-main": "Open bot",
@@ -3087,7 +3327,7 @@ translatePage(savedLang);
             const carousel = document.getElementById(carouselId);
             const dotsContainer = document.getElementById(carouselId.replace('-carousel', '-dots'));
 
-            if (!carousel || !dotsContainer || window.innerWidth > 768) return;
+            if (!carousel || !dotsContainer || !shouldUseCarousel()) return;
 
             const cards = carousel.querySelectorAll('.core-card, .feature-card');
             if (cards.length === 0) return;
@@ -3175,8 +3415,16 @@ translatePage(savedLang);
             };
         }
 
+        // Helper: détecter si on doit activer le carousel (mobile + iPad mini portrait)
+        function shouldUseCarousel() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            // Mobile classique OU iPad mini portrait (768x1024)
+            return width <= 768 || (width === 768 && height >= 1000);
+        }
+
         function initMobileCarousel() {
-            if (window.innerWidth <= 768) {
+            if (shouldUseCarousel()) {
                 // Wrap core-grid
                 const coreGrid = document.querySelector('.core-grid');
                 if (coreGrid && !coreGrid.classList.contains('carousel-wrapper')) {
@@ -3223,6 +3471,20 @@ translatePage(savedLang);
                     }
                 }
 
+                // Réinitialiser les animations scroll pour les feature cards dans le carousel
+                setTimeout(() => {
+                    const featureCards = document.querySelectorAll('.feature-card');
+                    featureCards.forEach((card) => {
+                        if (!card.classList.contains('scroll-scale-in')) {
+                            card.classList.add('scroll-scale-in', 'scroll-stagger');
+                        }
+                        // Force visible pour iPad mini (pas besoin d'attendre le scroll)
+                        if (shouldUseCarousel() && window.innerWidth === 768) {
+                            card.classList.add('visible');
+                        }
+                    });
+                }, 200);
+
                 isCarouselInitialized = true;
             } else {
                 // Remove carousel wrappers on desktop
@@ -3265,11 +3527,11 @@ translatePage(savedLang);
         }
 
         // Track current viewport state to detect breakpoint changes
-        let wasMobile = window.innerWidth <= 768;
+        let wasMobile = shouldUseCarousel();
 
         // Handle viewport changes with debounced resize listener
         const handleResize = debounce(() => {
-            const isMobile = window.innerWidth <= 768;
+            const isMobile = shouldUseCarousel();
 
             // Only reinitialize if we crossed the 768px breakpoint
             if (isMobile !== wasMobile) {
