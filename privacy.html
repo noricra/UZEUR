@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidentialité / Privacy - UZEUR</title>
+    <meta name="robots" content="noindex">
+    
+    <style>
+        /* Copie identique du CSS pour cohérence */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --purple-vibrant: #8b5cf6; --purple-accent: #8b5cf6;
+            --bg-white: #fafbfc; --bg-light: #f3f4f6;
+            --text-black: #1e293b; --text-dark: #334155; --text-gray: #64748b;
+            --border-light: #f1f5f9; --border-dark: #e2e8f0;
+            --gradient-vivid: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #ec4899 100%);
+            --bg-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-white); background-image: var(--bg-pattern);
+            color: var(--text-dark); line-height: 1.6;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light); position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        .header-inner {
+            max-width: 1400px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; height: 80px;
+        }
+        header nav { display: flex; align-items: center; gap: 2.7rem; flex: 1; }
+        .logo {
+            font-size: 1.5rem; font-weight: 900;
+            background: var(--gradient-vivid); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+        .nav-links { display: flex; gap: 1rem; list-style: none; margin-left: auto; margin-right: auto;}
+        .nav-links a { color: var(--text-gray); text-decoration: none; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; }
+        .btn-primary {
+            display: inline-block; padding: 10px 24px; border-radius: 50px; font-weight: 700; text-decoration: none;
+            background: var(--gradient-vivid); color: #ffffff; font-size: 0.9rem; text-transform: uppercase;
+        }
+        .language-switcher {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-light); border-radius: 50px; padding: 4px;
+        }
+        .language-switcher button {
+            background: transparent; border: none; color: var(--text-gray); padding: 8px 16px;
+            border-radius: 50px; cursor: pointer; font-weight: 500; transition: all 0.3s ease;
+        }
+        .language-switcher button.active { background: var(--purple-accent); color: #ffffff; }
+
+        .legal-container {
+            max-width: 900px; margin: 140px auto 80px; padding: 40px;
+            background: #ffffff; border: 1px solid var(--border-dark);
+            border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        h1 { font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 900; margin-bottom: 10px; color: var(--text-black); line-height: 1.2; }
+        .last-update { color: var(--text-light); font-size: 0.9rem; margin-bottom: 40px; display: block; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; }
+        h3 { margin-top: 25px; margin-bottom: 15px; color: var(--text-dark); font-size: 1.2rem; font-weight: 700; }
+        p, li { color: var(--text-gray); margin-bottom: 15px; font-size: 1.05rem; }
+        ul { padding-left: 20px; margin-bottom: 20px; }
+
+        footer { background: var(--bg-light); padding: 60px 0 30px; border-top: 1px solid rgba(233, 213, 255, 0.3); }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; }
+        .footer-section h4 { color: var(--purple-accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-links a { color: var(--text-gray); text-decoration: none; display: block; padding: 0.4rem 0; font-size: 0.9rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 3rem; border-top: 1px solid var(--border-light); color: var(--text-gray); font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .legal-container { margin: 100px 15px 40px; padding: 25px; }
+        }
+        .lang-content { display: none; }
+        .lang-content.visible { display: block; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <nav>
+                <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">UZEUR.COM</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Accueil</a></li>
+                    <li><a href="index.html#features">Fonctionnalités</a></li>
+                    <li><a href="index.html#pricing">Tarifs</a></li>
+                    <li><a href="https://t.me/uzeur_bot" class="btn btn-primary">Ouvrir le bot</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLang('fr')" id="btn-fr">FR</button>
+                <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="legal-container">
+
+        <div id="fr-content" class="lang-content visible">
+            <h1>Politique de Confidentialité</h1>
+            <span class="last-update">Dernière mise à jour : Janvier 2025</span>
+
+            <h3>1. Responsable du Traitement</h3>
+            <p>Les données sont collectées par l'Éditeur du service (Particulier, France).<br>Pour toute question relative à vos données : <strong>support@uzeur.com</strong></p>
+
+            <h3>2. Données Collectées</h3>
+            <p>Dans un souci de minimisation des données (Privacy by Design), nous ne collectons que le strict nécessaire :</p>
+            <ul>
+                <li><strong>Telegram :</strong> ID Utilisateur (numérique), Nom d'utilisateur (Username), Photo de profil.</li>
+                <li><strong>Transactions :</strong> Adresses de portefeuille (Wallet) publiques, Hash de transaction (TXID). <em>Ces données sont par nature publiques sur la Blockchain.</em></li>
+                <li><strong>Fichiers :</strong> Les produits numériques téléversés par les Vendeurs.</li>
+                <li><strong>Logs techniques :</strong> Adresse IP, logs d'erreurs pour la sécurité.</li>
+            </ul>
+            <p><strong>Note importante :</strong> Nous ne conservons aucune conversation privée. Le Bot fonctionne uniquement par commandes.</p>
+
+            <h3>3. Partage des Données</h3>
+            <p>Vos données transitent par nos prestataires techniques nécessaires au fonctionnement :</p>
+            <ul>
+                <li><strong>Telegram :</strong> Infrastructure de messagerie.</li>
+                <li><strong>NowPayments :</strong> Traitement des adresses crypto.</li>
+                <li><strong>Railway / OVH / Backblaze :</strong> Hébergement serveurs et stockage de fichiers (Europe & USA).</li>
+            </ul>
+
+            <h3>4. Durée de Conservation</h3>
+            <ul>
+                <li><strong>Données de compte :</strong> Jusqu'à la demande de suppression ou fermeture du service.</li>
+                <li><strong>Logs de transaction :</strong> Conservés pour la durée légale (5 à 10 ans) à des fins de preuve fiscale/juridique.</li>
+                <li><strong>Fichiers produits :</strong> Supprimés à la fermeture du compte vendeur.</li>
+            </ul>
+
+            <h3>5. Vos Droits</h3>
+            <p>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez <strong>support@uzeur.com</strong>.</p>
+        </div>
+
+        <div id="en-content" class="lang-content">
+            <h1>Privacy Policy</h1>
+            <span class="last-update">Last Updated: January 2025</span>
+
+            <h3>1. Data Controller</h3>
+            <p>Data is collected by the Service Publisher (Individual, France).<br>For any data-related questions: <strong>support@uzeur.com</strong></p>
+
+            <h3>2. Data Collected</h3>
+            <p>We collect strictly necessary data (Privacy by Design):</p>
+            <ul>
+                <li><strong>Telegram:</strong> User ID (numeric), Username, Profile Picture.</li>
+                <li><strong>Transactions:</strong> Public Wallet Addresses, Transaction Hash (TXID). <em>These are public on the Blockchain.</em></li>
+                <li><strong>Files:</strong> Digital products uploaded by Sellers.</li>
+                <li><strong>Technical Logs:</strong> IP Address, error logs for security.</li>
+            </ul>
+            <p><strong>Important:</strong> We do not store private conversations. The Bot operates via commands only.</p>
+
+            <h3>3. Data Sharing</h3>
+            <p>Your data passes through technical providers necessary for operation:</p>
+            <ul>
+                <li><strong>Telegram:</strong> Messaging infrastructure.</li>
+                <li><strong>NowPayments:</strong> Crypto address processing.</li>
+                <li><strong>Railway / OVH / Backblaze:</strong> Server hosting and file storage (Europe & USA).</li>
+            </ul>
+
+            <h3>4. Data Retention</h3>
+            <ul>
+                <li><strong>Account Data:</strong> Until deletion request or service closure.</li>
+                <li><strong>Transaction Logs:</strong> Retained for legal duration (5 to 10 years) for tax/legal proof.</li>
+                <li><strong>Product Files:</strong> Deleted upon seller account closure.</li>
+            </ul>
+
+            <h3>5. Your Rights</h3>
+            <p>You have the right to access, rectify, and delete your data. To exercise this right, contact <strong>support@uzeur.com</strong>.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Plateforme</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#core">Comment ça marche</a></li>
+                    <li><a href="index.html#features">Fonctionnalités</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Légal</h4>
+                <ul class="footer-links">
+                    <li><a href="cgu.html">CGU / Terms</a></li>
+                    <li><a href="privacy.html">Confidentialité / Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:support@uzeur.com">support@uzeur.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 UZEUR - Decentralized Marketplace</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('visible'));
+            document.getElementById(lang + '-content').classList.add('visible');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+        switchLang(savedLang);
+    </script>
+</body>
+</html>
