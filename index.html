@@ -3259,7 +3259,7 @@ const translations = {
     }
 };
 
-let currentLang = 'fr';
+let currentLang = 'en';
 
 function translatePage(lang) {
     currentLang = lang;
@@ -3285,7 +3285,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
-const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+const savedLang = localStorage.getItem('preferredLanguage') || 'en';
 translatePage(savedLang);
 
         // Mobile menu toggle
